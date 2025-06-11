@@ -32,7 +32,7 @@
             </tr>
             <tr>
                 <td onclick="digitBtnPressed(0)" colspan="2">0</td>
-                <td>AC</td>
+                <td onclick="btnACPressed()">AC</td>
                 <td>/</td>
             </tr>
             <tr>
@@ -42,10 +42,10 @@
 
     <script>
 
-        var newLine = true;
+        var newLine = true;// determines if the next thing the user adds should be on a new line 
 
+        //event hander for when any of the buttons are pressed
         function digitBtnPressed(button) {
-
             if(newLine){
                 document.getElementById("inputBox").value = button;
                 newLine = false;
@@ -53,7 +53,12 @@
                 var currentValue = document.getElementById("inputBox").value;
                 document.getElementById("inputBox").value = currentValue + button;
             }
-            
+        }
+
+        // clear the input box and resets the value to zero 
+        function btnACPressed(){
+            document.getElementById("inputBox").value = 0;
+            newLine = true;
         }
     </script>
 </body>
