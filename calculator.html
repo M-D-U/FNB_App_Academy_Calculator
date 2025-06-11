@@ -8,30 +8,30 @@
 <body>
     <table border="1">
             <tr>
-                <td colspan="4"><input  type="text" id="inputbox" value="0"/>
+                <td colspan="4"><input  type="text" id="inputBox" value="0"/>
                 </td>
                     
             </tr>
             <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
+                <td onclick="digitBtnPressed(7)">7</td>
+                <td onclick="digitBtnPressed(8)">8</td>
+                <td onclick="digitBtnPressed(9)">9</td>
                 <td>X</td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
+                <td onclick="digitBtnPressed(4)">4</td>
+                <td onclick="digitBtnPressed(5)">5</td>
+                <td onclick="digitBtnPressed(6)">6</td>
                 <td>-</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td onclick="digitBtnPressed(1)">1</td>
+                <td onclick="digitBtnPressed(2)">2</td>
+                <td onclick="digitBtnPressed(3)">3</td>
                 <td>+</td>
             </tr>
             <tr>
-                <td colspan="2">0</td>
+                <td onclick="digitBtnPressed(0)" colspan="2">0</td>
                 <td>AC</td>
                 <td>/</td>
             </tr>
@@ -39,5 +39,22 @@
                 <td colspan="4">=</td>
             </tr>
     </table>
+
+    <script>
+
+        var newLine = true;
+
+        function digitBtnPressed(button) {
+
+            if(newLine){
+                document.getElementById("inputBox").value = button;
+                newLine = false;
+            }else{
+                var currentValue = document.getElementById("inputBox").value;
+                document.getElementById("inputBox").value = currentValue + button;
+            }
+            
+        }
+    </script>
 </body>
 </html>
