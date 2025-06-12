@@ -16,38 +16,40 @@
                 <td onclick="digitBtnPressed(7)">7</td>
                 <td onclick="digitBtnPressed(8)">8</td>
                 <td onclick="digitBtnPressed(9)">9</td>
-                <td>X</td>
+                <td onclick="operatorBtnPressed('*')">X</td>
             </tr>
             <tr>
                 <td onclick="digitBtnPressed(4)">4</td>
                 <td onclick="digitBtnPressed(5)">5</td>
                 <td onclick="digitBtnPressed(6)">6</td>
-                <td>-</td>
+                <td onclick="operatorBtnPressed('-')">-</td>
             </tr>
             <tr>
                 <td onclick="digitBtnPressed(1)">1</td>
                 <td onclick="digitBtnPressed(2)">2</td>
                 <td onclick="digitBtnPressed(3)">3</td>
-                <td>+</td>
+                <td onclick="operatorBtnPressed('+')">+</td>
             </tr>
             <tr>
                 <td onclick="digitBtnPressed(0)" colspan="2">0</td>
                 <td onclick="btnACPressed()">AC</td>
-                <td>/</td>
+                <td onclick="operatorBtnPressed('/')">/</td>
             </tr>
             <tr>
-                <td colspan="4">=</td>
+                <td onclick="operatorBtnPressed('=')" colspan="4">=</td>
             </tr>
     </table>
 
     <script>
 
         var newLine = true;// determines if the next thing the user adds should be on a new line 
+        var value1;
+        var currentOperator;
 
         //event hander for when any of the buttons are pressed
         function digitBtnPressed(button) {
             if(newLine){
-                document.getElementById("inputBox").value = button;
+                document.getElementById("inputBox").value = button; 
                 newLine = false;
             }else{
                 var currentValue = document.getElementById("inputBox").value;
@@ -60,6 +62,14 @@
             document.getElementById("inputBox").value = 0;
             newLine = true;
         }
+
+        //function for the operators on the calculator
+        function operatorBtnPressed(operator){
+            currentOperator = operator;
+            value1 = parseInt(document.getElementById("inputBox").value);
+            newLine = true;
+        }
+
     </script>
 </body>
 </html>
